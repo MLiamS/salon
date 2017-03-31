@@ -19,8 +19,14 @@ public class StylistTest {
 
   @Test
   public void Stylist_instantiatesCorrectly_True() {
-  Stylist stylist = new Stylist("Frank");
-  assertTrue(stylist instanceof Stylist);
+    Stylist stylist = new Stylist("Frank");
+    assertTrue(stylist instanceof Stylist);
+  }
+
+  @Test
+  public void Stylist_stylistGetttersReturn_true() {
+    Stylist stylist = new Stylist ("Frank");
+    assertEquals(stylist.getName() , "Frank");
   }
 
 }
