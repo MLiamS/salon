@@ -12,7 +12,7 @@ public class ClientTest {
   @After
   public void tearDown() {
     try (Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM Clients *;";
+      String sql = "DELETE FROM clients *;";
       con.createQuery(sql).executeUpdate();
     }
   }
@@ -30,10 +30,9 @@ public class ClientTest {
   }
 
   @Test
-  public void save_savesClinetsToDataBase() {
+  public void save_savesClientsToDataBase_True() {
     Client client = new Client ("Frank", 1);
     client.save();
-    assertEquals(client.getName(), "Frank");
-    assertEquals(client.getId(), 1);
+    assertTrue(Client.all().get(0).equals(client));
   }
 }

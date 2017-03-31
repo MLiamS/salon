@@ -40,7 +40,7 @@ public class Client {
   try(Connection con = DB.sql2o.open()) {
     String sql = "SELECT * FROM clients";
     return con.createQuery(sql)
-    .addColumnMapping("stylist_id", "StylistId")
+    .addColumnMapping("id_stylists", "StylistId")
     .executeAndFetch(Client.class);
     }
   }
