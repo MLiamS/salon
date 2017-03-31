@@ -26,6 +26,7 @@ public class ClientTest {
   public void Client_clientGetttersReturn_true() {
     Client client = new Client ("Frank", 1);
     assertEquals(client.getName() , "Frank");
+    assertEquals(client.getStylistId(), 1);
   }
 
 }
