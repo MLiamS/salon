@@ -27,10 +27,10 @@ public class Client {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (name, stylist_id) VALUES (:name, stylist_id)";
+      String sql = "INSERT INTO clients (name, id_stylists) VALUES (:name, :id_stylists)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
-      .addParameter("stylist_id", this.stylistId)
+      .addParameter("id_stylists", this.stylistId)
       .executeUpdate()
       .getKey();
     }

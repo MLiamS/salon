@@ -23,10 +23,17 @@ public class ClientTest {
   }
 
   @Test
-  public void Client_clientGetttersReturn_true() {
+  public void clientGettersReturn_true() {
     Client client = new Client ("Frank", 1);
     assertEquals(client.getName() , "Frank");
     assertEquals(client.getStylistId(), 1);
   }
 
+  @Test
+  public void save_savesClinetsToDataBase() {
+    Client client = new Client ("Frank", 1);
+    client.save();
+    assertEquals(client.getName(), "Frank");
+    assertEquals(client.getId(), 1);
+  }
 }
