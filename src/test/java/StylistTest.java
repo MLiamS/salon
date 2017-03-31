@@ -36,4 +36,13 @@ public class StylistTest {
     assertTrue(Stylist.all().get(0).equals(stylist));
   }
 
+  @Test
+  public void Stylist_foundFromDatabase_true() {
+    Stylist stylist1 = new Stylist("Frank");
+    stylist1.save();
+    Stylist stylist2 = new Stylist("Frank");
+    stylist2.save();
+    assertEquals(stylist2, Stylist.find(stylist2.getId()));
+
+  }
 }
