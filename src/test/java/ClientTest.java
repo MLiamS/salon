@@ -18,13 +18,13 @@ public class ClientTest {
   }
   @Test
   public void Client_instantiatesCorrectly_True() {
-    Client client = new Client("Frank");
+    Client client = new Client("Frank", 1);
     assertTrue(client instanceof Client);
   }
 
   @Test
   public void Client_clientGetttersReturn_true() {
-    Client client = new Client ("Frank");
+    Client client = new Client ("Frank", 1);
     assertEquals(client.getName() , "Frank");
   }
 
