@@ -29,4 +29,11 @@ public class StylistTest {
     assertEquals(stylist.getName() , "Frank");
   }
 
+  @Test
+  public void Stylist_savesToDatabase_true() {
+    Stylist stylist = new Stylist("Frank");
+    stylist.save();
+    assertTrue(Stylist.all().get(0).equals(stylist));
+  }
+
 }
