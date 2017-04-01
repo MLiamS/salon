@@ -1,0 +1,11 @@
+
+<h1>ADMIN VTL</h1>
+<a href="/stylists/new">Add a new Stylist</a>
+
+#if ($stylists)
+    #foreach ($stylist in $stylists)
+    <div class="panel panel-default">
+  <div class="panel-body"><a href="/stylits/$stylist.getId()">$stylist.getName()</a></div>
+    </div>
+    #end
+#end

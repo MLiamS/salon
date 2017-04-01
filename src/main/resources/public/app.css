@@ -1,0 +1,8 @@
+.italic {
+  font-style: italic;
+}
+
+.home li {
+  float: left;
+  margin-right: 20px;
+}

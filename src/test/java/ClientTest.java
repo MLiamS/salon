@@ -35,4 +35,14 @@ public class ClientTest {
     client.save();
     assertTrue(Client.all().get(0).equals(client));
   }
-}
+
+    @Test
+    public void allFromStylist_returnsAllClientsFromStylistByStylitsId_True() {
+      Client client1 = new Client("Sam", 1);
+      client1.save();
+      Client client2 = new Client("Gary", 2);
+      client2.save();
+      assertTrue(Client.allFromStylist(2).contains(client2));
+      assertFalse(Client.allFromStylist(2).contains(client1));
+    }
+  }

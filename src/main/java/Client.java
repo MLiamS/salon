@@ -60,9 +60,18 @@ public class Client {
       String sql = "SELECT * FROM clients WHERE id = :id";
       Client client = con.createQuery(sql)
         .addParameter("id", id)
-        .addColumnMapping("bar_id", "barID")
         .executeAndFetchFirst(Client.class);
       return client;
     }
   }
+
+    public static List<Client> allFromStylist(int stylistId) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "SELECT * FROM clients WHERE id_stylists = :id";
+        return con.createQuery(sql)
+        .addParameter("id", stylistId)
+        .addColumnMapping("id_stylists", "StylistId")
+        .executeAndFetch(Client.class);
+      }
+    }
 }
