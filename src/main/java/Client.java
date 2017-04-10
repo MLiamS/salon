@@ -6,13 +6,18 @@ public class Client {
   private String name;
   private int stylistId;
 
-  public Client(String name, int stylistId) {
+  public Client(String name, String phone, int stylistId) {
     this.name = name;
+    this.phone = phone;
     this.stylistId = stylistId;
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public String getPhone() {
+    return this.phone;
   }
 
   public int getId() {
@@ -27,9 +32,10 @@ public class Client {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (name, id_stylists) VALUES (:name, :id_stylists)";
+      String sql = "INSERT INTO clients (name, phone, id_stylists) VALUES (:name, phone, :id_stylists)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
+      .addParameter("phone", this.phone)
       .addParameter("id_stylists", this.stylistId)
       .executeUpdate()
       .getKey();

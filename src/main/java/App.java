@@ -26,7 +26,14 @@ public class App {
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
-      Stylist newStylist = new Stylist(name);
+      String rate = request.queryParams("rate");
+      boolean color;
+      if (request.queryParams("color") == null) {
+        hasMusic = false;
+      } else {
+        hasMusic = true;
+      }
+      Stylist newStylist = new Stylist(name, rate, color);
       newStylist.save();
       model.put("stylists", Stylist.all());
       model.put("template", "templates/index.vtl");

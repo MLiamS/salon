@@ -5,14 +5,27 @@ import java.util.ArrayList;
 public class Stylist {
   private int id;
   private String name;
+  private String rate;
+  private boolean color;
 
-  public Stylist(String name) {
+
+  public Stylist(String name, String rate, boolean color) {
     this.name = name;
+    this.rate = rate;
+    this.color = color;
 
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public String getRate() {
+    return this.rate;
+  }
+
+  public boolean getColor() {
+    return this.color;
   }
 
   public int getId() {
@@ -29,9 +42,11 @@ public class Stylist {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists (name) VALUES (:name)";
+      String sql = "INSERT INTO stylists (name, rate, color) VALUES (:name, :rate, :color)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
+      .addParameter("rate", this.rate)
+      .addParameter("color", this.color)
       .executeUpdate()
       .getKey();
     }
