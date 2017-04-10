@@ -47,7 +47,7 @@ public class Client {
   try(Connection con = DB.sql2o.open()) {
     String sql = "SELECT * FROM clients";
     return con.createQuery(sql)
-    .addColumnMapping("id_stylists", "StylistId")
+    .addColumnMapping("id_stylists", "stylistId")
     .executeAndFetch(Client.class);
     }
   }
@@ -67,6 +67,7 @@ public class Client {
       String sql = "SELECT * FROM clients WHERE id = :id";
       return con.createQuery(sql)
         .addParameter("id", id)
+        .addColumnMapping("id_stylists", "stylistId")
         .executeAndFetchFirst(Client.class);
     }
   }
