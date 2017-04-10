@@ -72,7 +72,7 @@ public class App {
 
     get("stylists/:stylist_id/client/:id", (request, response) -> {
     Map<String, Object> model = new HashMap<String, Object>();
-    Stylist stylist = Stylist.find(Integer.parseInt(request.params("stylist_id")));
+    Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
     Client client = Client.find(Integer.parseInt(request.params(":id")));
     model.put("stylist", stylist);
     model.put("client", client);
