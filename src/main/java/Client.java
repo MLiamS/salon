@@ -4,6 +4,7 @@ import java.util.List;
 public class Client {
   private int id;
   private String name;
+  private String phone;
   private int stylistId;
 
   public Client(String name, String phone, int stylistId) {
@@ -32,7 +33,7 @@ public class Client {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (name, phone, id_stylists) VALUES (:name, phone, :id_stylists)";
+      String sql = "INSERT INTO clients (name, phone, id_stylists) VALUES (:name, :phone, :id_stylists)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
       .addParameter("phone", this.phone)

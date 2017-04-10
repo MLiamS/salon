@@ -37,7 +37,7 @@ CREATE TABLE clients (
     id integer NOT NULL,
     name character varying,
     phone character varying,
-    id_stylist integer
+    id_stylists integer
 );
 
 
@@ -117,7 +117,7 @@ ALTER TABLE ONLY stylists ALTER COLUMN id SET DEFAULT nextval('stylists_id_seq':
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY clients (id, name, phone, id_stylist) FROM stdin;
+COPY clients (id, name, phone, id_stylists) FROM stdin;
 \.
 
 

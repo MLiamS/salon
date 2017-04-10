@@ -36,6 +36,8 @@ public class Stylist {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists";
       return con.createQuery(sql)
+      .addColumnMapping("rate", "rate")
+      .addColumnMapping("color", "color")
       .executeAndFetch(Stylist.class);
     }
   }

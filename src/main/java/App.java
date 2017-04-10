@@ -29,9 +29,9 @@ public class App {
       String rate = request.queryParams("rate");
       boolean color;
       if (request.queryParams("color") == null) {
-        hasMusic = false;
+        color = false;
       } else {
-        hasMusic = true;
+        color = true;
       }
       Stylist newStylist = new Stylist(name, rate, color);
       newStylist.save();
