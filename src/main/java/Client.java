@@ -77,7 +77,7 @@ public class Client {
         String sql = "SELECT * FROM clients WHERE id_stylists = :id";
         return con.createQuery(sql)
         .addParameter("id", stylistId)
-        .addColumnMapping("id_stylists", "StylistId")
+        .addColumnMapping("id_stylists", "stylistId")
         .executeAndFetch(Client.class);
       }
     }
