@@ -1,5 +1,7 @@
 <h1>$stylist.getName()</h1>
-
+<h3>Works for $stylist.getRate()/hr</h3>
+<h3>#if ($stylist.getColor())$stylist.getName() can do Color!<br> #end</h3>
+    #if ( ! $stylist.getColor())$stylist.getName() can't do Color<br>
 #if ($clients)
   <ul>
     #foreach ($client in $clients)

@@ -2,16 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.3
--- Dumped by pg_dump version 9.5.3
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -34,13 +30,14 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: clients; Type: TABLE; Schema: public; Owner: Guest
+-- Name: clients; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE clients (
     id integer NOT NULL,
     name character varying,
-    id_stylists integer
+    phone character varying,
+    id_stylist integer
 );
 
 
@@ -68,12 +65,14 @@ ALTER SEQUENCE clients_id_seq OWNED BY clients.id;
 
 
 --
--- Name: stylists; Type: TABLE; Schema: public; Owner: Guest
+-- Name: stylists; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE stylists (
     id integer NOT NULL,
-    name character varying
+    name character varying,
+    rate character varying,
+    color boolean
 );
 
 
@@ -118,7 +117,7 @@ ALTER TABLE ONLY stylists ALTER COLUMN id SET DEFAULT nextval('stylists_id_seq':
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY clients (id, name, id_stylists) FROM stdin;
+COPY clients (id, name, phone, id_stylist) FROM stdin;
 \.
 
 
@@ -133,9 +132,7 @@ SELECT pg_catalog.setval('clients_id_seq', 1, false);
 -- Data for Name: stylists; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY stylists (id, name) FROM stdin;
-1	Suzy
-2	Sam
+COPY stylists (id, name, rate, color) FROM stdin;
 \.
 
 
@@ -143,11 +140,11 @@ COPY stylists (id, name) FROM stdin;
 -- Name: stylists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('stylists_id_seq', 2, true);
+SELECT pg_catalog.setval('stylists_id_seq', 1, false);
 
 
 --
--- Name: clients_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: clients_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY clients
@@ -155,7 +152,7 @@ ALTER TABLE ONLY clients
 
 
 --
--- Name: stylists_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: stylists_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY stylists
