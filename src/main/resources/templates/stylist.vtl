@@ -1,11 +1,11 @@
 <h1>$stylist.getName()</h1>
-<h3>Works for $stylist.getRate() dollars/hr</h3>
-<h3>#if ($stylist.getColor())$stylist.getName() can do Color!<br> #end
+<h3>Works for $stylist.getRate() dollar(s)/hr</h3>
+<h3>#if ($stylist.getColor())$stylist.getName() can do Color<br> #end
     #if ( ! $stylist.getColor())$stylist.getName() can't do Color<br> #end <h3>
 #if ($clients)
   <ul>
     #foreach ($client in $clients)
-      <li><a href="$stylist.getId()/client/$client.getId()">"$client.getName()</a>"</li>
+      <li><a href="$stylist.getId()/clients/$client.getId()">"$client.getName()</a>"</li>
     #end
   </ul>
 #end

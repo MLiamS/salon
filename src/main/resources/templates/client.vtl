@@ -1,7 +1,11 @@
-<h1>$stylist.getName()'s current Client</h1>
+<h1>$stylist.getName()'s Client</h1>
 
 <h2>Name: $client.getName()</h2>
-<h2>Phone Number $client.getPhone()</h2>
+<h2>Phone Number: $client.getPhone()</h2>
 
-<h2>Update Client</h2>
-<h2>Delete Client</h2>
+<form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
+  <label for="phoneNumber">Enter New Phone Number</label>
+  <input id="phoneNumber" name="phoneNumber" type="text">
+  <button type="submit" class="btn btn-info">Update Phone Number</button>
+</form>
+<h3><a href="#">Delete Client</a></h3>
