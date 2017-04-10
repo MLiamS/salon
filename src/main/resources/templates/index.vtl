@@ -1,6 +1,9 @@
 <!--index.vtl-->
-<h1>THIS IS THE INDEX VTL</h1>
-
+#if ($stylists)
+  <h1>Click a Stylist name below to view their Clients</h1>
+  #else
+    <h1>No Stylists Available</h1>
+  #end
 #if ($stylists)
     #foreach ($stylist in $stylists)
     <div class="panel panel-default">
