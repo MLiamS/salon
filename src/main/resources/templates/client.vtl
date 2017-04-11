@@ -8,4 +8,8 @@
   <input id="phoneNumber" name="phoneNumber" type="text">
   <button type="submit" class="btn btn-info">Update Phone Number</button>
 </form>
-<h3><a href="#">Delete Client</a></h3>
+
+<form action="/stylists/:stylist_id/clients/:id/delete" method="post">
+  <label for="delete">Delete Client</label>
+  <button type="submit" class="btn btn-info">Delete</button>
+</form>
