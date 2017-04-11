@@ -1,0 +1,15 @@
+<h1>Edit $stylist.getName()...</h1>
+<form action="/stylists/$stylist.getId()/edit" method="post">
+  <div>
+    <label for="rate"></label>
+    <input type="hidden" name="option" value="rate">
+    <input type="text" name="rate" id="rate">
+    <button type="submit" class="btn btn-primary">Edit $stylist.getName() Rate in $/hr</button>
+  </div>
+</form>
+<form action="/stylists/$stylist.getId()/edit" method="post">
+  <label for="color">Check the box if $stylist.getName() can do color, leave empty if they cannot --> </label>
+  <input type="hidden" name="option" value="color">
+  <input type="checkbox" name="color" id="color">
+  <button type="submit" class="btn btn-primary">Edit $stylist.getName()s ability to do color</button>
+</form>

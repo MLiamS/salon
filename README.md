@@ -2,21 +2,20 @@
 
 #### _salon, 03-31-2017_
 
-#### By _** and **_
+#### By Liam Stabeno
 
 ## Description
-_Example text for the description of the project_
+_A hair salon site_
 
 
 ## Specifications
 
-| Behavior                   | Input Example     | Output Example    |
-| -------------------------- | -----------------:| -----------------:|
-
+_TBDefined_
 
 
 ## Setup/Installation Requirements
 
+* _Create a database named hair_salon
 * _Clone the repository_
 * _Run the command 'gradle run'_
 * _Open browser and go to localhost:4567_
@@ -24,6 +23,6 @@ _Example text for the description of the project_
 
 ### License
 
-Copyright (c) 2017 **_ and _**
+Copyright (c) 2017 **Liam Stabeno**
 
 This software is licensed under the MIT license.

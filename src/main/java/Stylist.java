@@ -82,4 +82,25 @@ public class Stylist {
       .executeUpdate();
     }
   }
+
+  public void updateRate(String rate) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET rate = :rate WHERE id = :id";
+      con.createQuery(sql)
+      .addParameter("rate", rate)
+      .addParameter("id", id)
+      .executeUpdate();
+  }
+}
+
+  public void updateColor(boolean color) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET color = :color WHERE id = :id";
+      con.createQuery(sql)
+      .addParameter("color", color)
+      .addParameter("id", id)
+      .executeUpdate();
+  }
+}
+
 }

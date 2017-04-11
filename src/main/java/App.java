@@ -72,6 +72,7 @@ public class App {
       Client client = new Client(name, phone, Integer.parseInt(request.params(":id")));
       client.save();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+      model.put("editStylist", true);
       model.put("stylist", stylist);
       model.put("clients", Client.allFromStylist(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/stylist.vtl");
@@ -123,6 +124,40 @@ public class App {
       model.put("stylist", stylist);
       stylist.delete();
       response.redirect("/stylists");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists/:id/edit", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+      model.put("stylist", stylist);
+      model.put("template", "templates/stylist-edit.vtl");
+
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylists/:id/edit", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+      model.put("stylist", stylist);
+      String option = request.queryParams("option");
+          if (option.equals("rate")) {
+        String url = String.format("/stylists/%d", stylist.getId());
+      String rate = request.queryParams("rate");
+      stylist.updateRate(rate);
+      response.redirect(url);
+      }
+      else if (option.equals("color")) {
+        String url = String.format("/stylists/%d", stylist.getId());
+        boolean color;
+        if (request.queryParams("color") == null) {
+          color = false;
+        } else {
+          color = true;
+        }
+      stylist.updateColor(color);
+      response.redirect(url);
+      }
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }
