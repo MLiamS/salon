@@ -2,11 +2,12 @@
 <h3>Works for $stylist.getRate() dollar(s)/hr</h3>
 <h3>#if ($stylist.getColor())$stylist.getName() can do Color<br> #end
     #if ( ! $stylist.getColor())$stylist.getName() can't do Color<br> #end <h3>
-#if ($clients)
+#if ($clients.size() > 0)
   <ul>
     #foreach ($client in $clients)
       <li><a href="$stylist.getId()/clients/$client.getId()">"$client.getName()</a>"</li>
     #end
   </ul>
+  #else
+  <p>$stylist.getName() needs clients!</p>
 #end
-<a href="/stylists/$stylist.getId()/clients/new">Add a client to $stylist.getName()</a>
