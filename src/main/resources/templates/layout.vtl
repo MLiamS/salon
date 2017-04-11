@@ -18,7 +18,8 @@
           <li><a href="/stylists/new">Add a Stylist</a></li>
           #if ($editStylist)
           <li><a href="/stylists/$stylist.getId()/clients/new">Add a client to $stylist.getName()</a></li>
-          <li><a href="/stylists">Edit Stylist</a></li>
+          <li><a href="/stylists/$stylist.getId()/edit">Edit Stylist</a></li>
+          <li><a href="/stylists/$stylist.getId()/delete">Delete Stylist</a></li>
           #end
           #if ($editClient)
           <li><form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
